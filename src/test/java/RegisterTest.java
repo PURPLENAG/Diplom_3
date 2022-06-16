@@ -1,17 +1,21 @@
-import static com.codeborne.selenide.Selenide.open;
-import static utils.DataGenerator.generateUser;
-
 import config.BrowserConfigurator;
 import config.Environment;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import page.ConstructorPage;
-import page.RegisterPage;
+import ui.page.ConstructorPage;
+import ui.page.RegisterPage;
+import util.Ryuk;
+
+import static com.codeborne.selenide.Selenide.open;
+import static util.DataGenerator.generateUser;
 
 @DisplayName("Регистрация")
 public class RegisterTest {
+
+  private final Ryuk ryuk = new Ryuk();
 
   @BeforeClass
   public static void beforeAll() {
@@ -24,6 +28,11 @@ public class RegisterTest {
         .assertThatConstructorPage().logoutIfAuthorized();
   }
 
+  @After
+  public void afterEach() {
+    ryuk.wakeUp();
+  }
+
   @Test
   @DisplayName("Успешная регистрация")
   public void shouldSuccessRegister() {
@@ -34,7 +43,7 @@ public class RegisterTest {
         .clickAccount()
         .shouldOpenLoginPage()
         .clickRegister()
-        .register(user)
+        .register(ryuk.remember(user))
         .shouldSuccessRegister();
   }
 
@@ -49,7 +58,7 @@ public class RegisterTest {
         .clickAccount()
         .shouldOpenLoginPage()
         .clickRegister()
-        .register(user)
+        .register(ryuk.remember(user))
         .shouldFailRegister()
         .shouldHaveFormError(RegisterPage.INCORRECT_PASSWORD_ERROR_TEXT);
   }

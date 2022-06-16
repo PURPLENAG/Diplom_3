@@ -1,33 +1,35 @@
-import static com.codeborne.selenide.Selenide.open;
-import static utils.DataGenerator.generateUser;
-
+import api.client.AuthClient;
+import common.converter.UserConverter;
 import config.BrowserConfigurator;
 import config.Environment;
 import io.qameta.allure.junit4.DisplayName;
-import model.User;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import page.ConstructorPage;
+import ui.model.User;
+import ui.page.ConstructorPage;
+import util.Ryuk;
+
+import static com.codeborne.selenide.Selenide.open;
+import static util.DataGenerator.generateUser;
 
 @DisplayName("Авторизация")
 public class LoginTest {
 
+  private static final Ryuk ryuk = new Ryuk();
   private static User user;
 
   @BeforeClass
   public static void beforeAll() {
     BrowserConfigurator.useDefault();
-
     user = generateUser();
-    open(Environment.STAND_URL, ConstructorPage.class)
-        .assertThatConstructorPage()
-        .logoutIfAuthorized()
-        .clickAccount()
-        .shouldOpenLoginPage()
-        .clickRegister()
-        .register(user)
-        .shouldSuccessRegister();
+    AuthClient.register(ryuk.remember(UserConverter.toUserDto(user)));
+  }
+
+  @AfterClass
+  public static void afterAll() {
+    ryuk.wakeUp();
   }
 
   @Before

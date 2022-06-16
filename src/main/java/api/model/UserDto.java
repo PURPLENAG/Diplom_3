@@ -1,15 +1,15 @@
-package model;
+package api.model;
 
-public class User {
+public class UserDto {
 
   private String name;
   private String email;
   private String password;
 
-  public User() {
+  public UserDto() {
   }
 
-  public User(String name, String email, String password) {
+  public UserDto(String name, String email, String password) {
     this.name = name;
     this.email = email;
     this.password = password;

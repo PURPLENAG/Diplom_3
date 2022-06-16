@@ -1,19 +1,16 @@
-package page;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byCssSelector;
-import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.page;
-import static util.SelenideConditions.clickable;
+package ui.page;
 
 import com.codeborne.selenide.ElementsCollection;
-import java.util.Set;
-import model.User;
 import org.openqa.selenium.By;
-import page.LoginPage.LoginFormField;
+import ui.model.User;
+import ui.page.LoginPage.LoginFormField;
+
+import java.util.Set;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
+import static ui.util.SelenideConditions.clickable;
 
 public class LoginPage implements FormPage<LoginPage, LoginFormField> {
 

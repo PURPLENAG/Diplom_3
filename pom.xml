@@ -15,6 +15,8 @@
     <maven.compiler.target>11</maven.compiler.target>
     <junit.version>4.13.2</junit.version>
     <selenide.version>5.23.2</selenide.version>
+    <gson.version>2.8.9</gson.version>
+    <rest-assured.version>4.4.0</rest-assured.version>
     <aspectj.version>1.9.7</aspectj.version>
     <allure.version>2.15.0</allure.version>
   </properties>
@@ -31,6 +33,16 @@
       <version>${selenide.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit4</artifactId>
       <version>${allure.version}</version>
@@ -45,6 +57,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
         <configuration>
+          <trimStackTrace>false</trimStackTrace>
           <testFailureIgnore>false</testFailureIgnore>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

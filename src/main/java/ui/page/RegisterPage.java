@@ -1,21 +1,18 @@
-package page;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byCssSelector;
-import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.page;
-import static util.SelenideConditions.clickable;
+package ui.page;
 
 import com.codeborne.selenide.ElementsCollection;
-import java.util.Set;
-import model.User;
 import org.openqa.selenium.By;
-import page.RegisterPage.RegisterFormField;
+import ui.model.User;
+import ui.page.RegisterPage.RegisterFormField;
+
+import java.util.Set;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byCssSelector;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selenide.*;
+import static ui.util.SelenideConditions.clickable;
 
 public class RegisterPage implements FormPage<RegisterPage, RegisterFormField> {
 

@@ -1,9 +1,9 @@
-package utils;
+package util;
+
+import ui.model.User;
 
 import static java.lang.System.currentTimeMillis;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
-
-import model.User;
 
 public abstract class DataGenerator {
 

@@ -1,12 +1,12 @@
-import static com.codeborne.selenide.Selenide.open;
-import static org.junit.Assert.assertEquals;
-
 import config.BrowserConfigurator;
 import config.Environment;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import page.ConstructorPage;
+import ui.page.ConstructorPage;
+
+import static com.codeborne.selenide.Selenide.open;
+import static org.junit.Assert.assertEquals;
 
 @DisplayName("Конструктор")
 public class ConstructorTest {

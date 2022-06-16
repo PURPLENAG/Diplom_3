@@ -1,4 +1,4 @@
-package page;
+package ui.page;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import java.util.Set;
 
 import static com.codeborne.selenide.CollectionCondition.size;
-import static util.SelenideConditions.clickable;
+import static ui.util.SelenideConditions.clickable;
 
 public interface FormPage<P extends FormPage<P, F>, F extends Enum<F>> {
 

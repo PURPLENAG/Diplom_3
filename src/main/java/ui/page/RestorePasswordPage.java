@@ -1,13 +1,13 @@
-package page;
+package ui.page;
+
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static util.SelenideConditions.clickable;
-
-import org.openqa.selenium.By;
+import static ui.util.SelenideConditions.clickable;
 
 public class RestorePasswordPage {
 
